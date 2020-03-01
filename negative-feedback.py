@@ -1,12 +1,13 @@
-# This program demonstrated the development of signals
-# in a op-amp with negative feedback using feedback theory
+# This program demonstrates the development of signals
+# in an op-amp with negative feedback using feedback theory
 # as explained in Sedra Smith Chapter 7
-# You will see that in this example, the output automatically
-# stabilizes to the expected from feeback theory
+# You will see in this example, the output automatically
+# stabilizes to the expected value from feeback theory
+
 # One important thing to remember in this simulation is that
 # you are simulating a dynamical system and therefore, you cannot
-# put it values as you get from your formulas. All systems take time
-# to respond and therefore an op-amp cannot swing its voltage from 0 to
+# put in values as you get from your formulas. All systems take time
+# to respond - which essentially means that an op-amp cannot swing its voltage from 0 to
 # 1000 V in one instant -it takes some time to do that and it does so only in
 # steps of small voltages and in during those steps, things evolve differently
 
@@ -15,11 +16,12 @@
 # So we expect, the output voltage to be equal to 10 * Vs. We have take Vs to be 5 V and therefore
 # we must see a output voltage close to 50 V.
 # Next, we must also see that the voltage difference must be close to zero.
-# For this to work, we must take care of large voltage swings and remember to 
+
+# For all of these to work, we must take care of large voltage swings and remember to 
 # make such swings happen in steps. Here we have put the steps to be 0.1 
 # So voltage increments or decrements will take place in steps of 0.1 V
 # If the step is very large, you will see that the resolution will be very poor.
-#    
+ 
 #%%
 import numpy as np
 import matplotlib.pyplot as plt
