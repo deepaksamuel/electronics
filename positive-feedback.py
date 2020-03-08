@@ -31,18 +31,19 @@ import matplotlib.pyplot as plt
 A = 10000 # open loop gain
 B = 0.1
 Vs = 5.0 # volts
-Vo = -10 # initial value of output
+Vo = 10 # initial value of output
 out = []
 t = []
 diff =[]
 step = 0.1
+bv0 = []
 for i in range(1,100000):
     #print(i)
     if i == 0:
         diff2 = 0
     else:
         diff2 = Vs + B*Vo # for positive feedback the sign should be made positive
-    #print(Vo,diff2)
+        #print(Vo,diff2)
     if A*diff2 > Vo:
         Vo = Vo + step 
     else:
@@ -50,11 +51,13 @@ for i in range(1,100000):
     # saturation:
     if Vo > 15:
         Vo =15
+        #print(B*Vo)
     if Vo < -15:
         Vo = -15
     t.append(i)
     out.append(Vo)
     diff.append(diff2)
+    #bv0.append(B*Vo)
     #print(Vs, Vo, B*Vo )
 
 plt.plot(t,out)
